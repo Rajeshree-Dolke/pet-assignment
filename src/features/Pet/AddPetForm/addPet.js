@@ -1,6 +1,7 @@
 export const addPet = async (newPet) => {
+    const url = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_LOCAL_BACKEND : process.env.REACT_APP_PROD_BACKEND
     try {
-        const response = await fetch(process.env.REACT_APP_BACKEND + '/pets',
+        const response = await fetch(url + '/pets',
             {
                 method: 'POST',
                 headers: {
