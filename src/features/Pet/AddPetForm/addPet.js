@@ -1,6 +1,6 @@
 export const addPet = async (newPet) => {
     try {
-        const response = await fetch('http://localhost:3000/pets',
+        const response = await fetch(process.env.REACT_APP_BACKEND + '/pets',
             {
                 method: 'POST',
                 headers: {
@@ -8,7 +8,7 @@ export const addPet = async (newPet) => {
                     'Content-Type': 'application/json'
                 }
                 ,
-                body: JSON.stringify( newPet )
+                body: JSON.stringify(newPet)
             })
         if (response.status !== 201) {
             throw new Error(response.statusText)

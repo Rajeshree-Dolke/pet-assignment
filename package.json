@@ -1,5 +1,6 @@
 {
   "name": "edb-pem",
+  "homepage": "http://Rajeshree-Dolke.github.io/pet-assignment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +12,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.1",
+    "concurrently": "^7.4.0",
     "framer-motion": "^7.3.2",
+    "gh-pages": "^4.0.0",
     "jest-fetch-mock": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,10 +24,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"json-server --watch db.json\"",
     "build": "react-scripts build",
     "test": "react-scripts test -- --config=jest.config.js --coverage --watchAll --silent",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

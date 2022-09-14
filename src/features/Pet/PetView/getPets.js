@@ -1,6 +1,6 @@
 export async function getPets() {
     try {
-        const response = await fetch('http://localhost:3000/pets')
+        const response = await fetch(process.env.REACT_APP_BACKEND + '/pets')
         if (response.status === 200) {
             return response.json()
         } else {
